@@ -311,8 +311,9 @@ public class SwiftPrintBluetoothThermalPlugin: NSObject, CBCentralManagerDelegat
 
                 let targetCharacteristicUUID = CBUUID(string: "00001101-0000-1000-8000-00805F9B34FB")
                 let targetCharacteristicUUID2 =  CBUUID(string: "49535343-8841-43F4-A8D4-ECBE34729BB3")
+                let targetCharacteristicUUID3 =  CBUUID(string: "38EB4A88-C570-11E3-9507-0002A5D5C51B")
 
-                if characteristic.uuid == targetCharacteristicUUID || characteristic.uuid == targetCharacteristicUUID2 {
+                if characteristic.uuid == targetCharacteristicUUID || characteristic.uuid == targetCharacteristicUUID2 || characteristic.uuid == targetCharacteristicUUID3 {
                     targetCharacteristic = characteristic // Guarda la característica objetivo en la variable global
                     print("Target characteristic found: \(characteristic.uuid)")
                     break
