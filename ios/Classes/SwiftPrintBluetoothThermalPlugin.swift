@@ -272,7 +272,8 @@ public class SwiftPrintBluetoothThermalPlugin: NSObject, CBCentralManagerDelegat
                    // Verifica si el servicio es el que estás buscando
                    let targetServiceUUID = CBUUID(string: "00001101-0000-1000-8000-00805F9B34FB")
                    let targetServiceUUID2 =  CBUUID(string: "49535343-FE7D-4AE5-8FA9-9FAFD205E455")
-                   if service.uuid == targetServiceUUID || service.uuid == targetServiceUUID2 {
+                   let targetServiceUUID3 =  CBUUID(string: "38EB4A80-C570-11E3-9507-0002A5D5C51B")
+                   if service.uuid == targetServiceUUID || service.uuid == targetServiceUUID2 || service.uuid == targetServiceUUID3 {
                        print("Service found: \(service.uuid)") 
                        // Por ejemplo, puedes descubrir las características del servicio
                        peripheral.discoverCharacteristics(nil, for: service)
@@ -297,7 +298,7 @@ public class SwiftPrintBluetoothThermalPlugin: NSObject, CBCentralManagerDelegat
 
         if let discoveredCharacteristics = service.characteristics {
             for characteristic in discoveredCharacteristics {
-                //print("characteristics found: \(characteristic.uuid)")
+                print("characteristics found: \(characteristic.uuid)")
                 if let characteristic = targetCharacteristic {
                     if characteristic.properties.contains(.write) {
                         // La característica admite escritura
